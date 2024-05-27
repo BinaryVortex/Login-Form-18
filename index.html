@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login Page | Disandu Perera</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #0a227c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Lato', sans-serif;
+            overflow: hidden;
+        }
+        
+        .container {
+            background: #0a227c;
+            width: 90%;
+            max-width: 1200px;
+            height: 80%;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .background-deco {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top right, #45c1e2 20%, #3974f2 80%);
+            clip-path: circle(50% at 50% 50%);
+            z-index: -1;
+            animation: move 10s infinite alternate ease-in-out;
+        }
+        
+        @keyframes move {
+            0% { clip-path: circle(50% at 50% 50%); }
+            100% { clip-path: circle(70% at 40% 60%); }
+        }
+        
+        .login-container {
+            width: 100%;
+            max-width: 800px;
+            height: 80%;
+            background: rgba(255, 255, 255, 0.15);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+        }
+        
+        .login-form {
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .login-deco-container {
+            width: 40%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .login-form-items {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .login-label {
+            color: white;
+            font-weight: 900;
+            font-size: 2em;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        
+        .text-input-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            position: relative;
+        }
+        
+        .form-label {
+            color: white;
+            font-weight: 300;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        
+        .text-style {
+            border-radius: 20px;
+            height: 40px;
+            background: none;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding-left: 15px;
+            color: white;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        
+        .text-style:focus {
+            border-color: #45c1e2;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .login-btn {
+            width: 100%;
+            max-width: 200px;
+            background: #3d5ff5;
+            border-radius: 20px;
+            border: none;
+            padding: 15px 0;
+            color: white;
+            font-weight: 700;
+            font-size: 1em;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .login-btn:hover {
+            background-color: #45c1e2;
+        }
+        
+        .login-deco {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .small-cloud-icon {
+            font-size: 2.5em;
+            position: absolute;
+            top: -50px;
+            left: -70px;
+            color: #ecfafa;
+        }
+        
+        .big-cloud-icon {
+            font-size: 5em;
+            position: absolute;
+            top: -40px;
+            left: -45px;
+            color: #dff8f9;
+        }
+        
+        .lock-icon {
+            font-size: 5em;
+            color: #a6ecee;
+        }
+        
+        .check-icon {
+            font-size: 1.5em;
+            color: white;
+            position: absolute;
+            top: 44px;
+            left: 22px;
+        }
+        
+        .footer {
+            color: #05e8f0;
+            font-weight: 100;
+            font-size: 14px;
+            position: absolute;
+            bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .login-form, .login-deco-container {
+                width: 100%;
+                height: 50%;
+            }
+            
+            .login-form {
+                order: 2;
+                padding: 10px;
+            }
+            
+            .login-deco-container {
+                order: 1;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .login-form-items {
+                width: 90%;
+            }
+            
+            .login-btn {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background-deco"></div>
+        <div class="login-container">
+            <div class="login-form">
+                <div class="login-form-items">
+                    <span class="login-label">LOGIN</span>
+                    <div class="text-input-container">
+                        <label class="form-label" for="username">USERNAME</label>
+                        <input type="text" id="username" class="text-style" placeholder="Enter your username">
+                    </div>
+                    <div class="text-input-container">
+                        <label class="form-label" for="password">PASSWORD</label>
+                        <input type="password" id="password" class="text-style" placeholder="Enter your password">
+                    </div>
+                    <button class="login-btn">SIGN IN</button>
+                    <span class="form-label">Don't have an account?</span>
+                </div>
+            </div>
+            <div class="login-deco-container">
+                <div class="login-deco">
+                    <i class="fa-solid fa-cloud small-cloud-icon"></i>
+                    <i class="fa-solid fa-cloud big-cloud-icon"></i>
+                    <div class="lock">
+                        <i class="fa-solid fa-lock lock-icon"></i>
+                        <i class="fa-solid fa-circle-check check-icon"></i>
+                    </div>
+                </div>
+                <span class="footer">Disandu Perera</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
